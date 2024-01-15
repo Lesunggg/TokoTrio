@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ProductView from '../views/ProductView.vue'
 import AboutView from '../views/AboutView.vue'
 import Regis from '../views/Regis.vue'
-import Login from '../views/login.vue'
+import Login from '../views/Login.vue'
 import Cart from '../views/CartView.vue'
 import ProductPage from '../views/ProductPage.vue'
 
