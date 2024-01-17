@@ -3,7 +3,7 @@
   import { ref } from 'vue';
   import { defineProps } from 'vue';
   import { useRoute } from 'vue-router';
-  import { cart, list } from '../assets/list'
+  import { cart, list, BACKEND_URL } from '../assets/list'
 
   const route = useRoute()
   const prop = defineProps(['id'])
@@ -21,13 +21,13 @@
     }
   }
 
-  axios.get(`http://localhost:3000/product/${route.params.id}`)
+  axios.get(`${BACKEND_URL}/product/${route.params.id}`)
   .then((res)=>{
     data.value = res.data[0]
   })
 
   function addCart () {
-    axios.post('http://localhost:3000/cart/add',
+    axios.post(`${BACKEND_URL}/cart/add`,
     {kode:data.value.kode,qty:qty.value},
     {
       withCredentials: true
