@@ -29,7 +29,7 @@ import show2 from './img/slide/img2.jpg'
 import axios from 'axios'
 import { ref } from 'vue'
 
-export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || http://localhost:3000
+export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"
 export const list = [img1,img2,img3,img4,img5,img6,
     img7,img8,img9,img10,img11,img12,
     img13,img14,img15,img16,img17,img18,
