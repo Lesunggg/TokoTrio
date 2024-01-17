@@ -3,7 +3,7 @@
   import { ref } from 'vue';
   import axios from'axios';
   import Card from '../components/Card.vue'
-  import { list } from '../assets/list'
+  import { list,BACKEND_URL } from '../assets/list'
   import { useRoute } from 'vue-router';
 
   const route = useRoute()
@@ -12,10 +12,10 @@
   const link = ref('')
 
   if (title == 'All Products') {
-    link.value = 'http://localhost:3000/product'
+    link.value = `${BACKEND_URL}/product`
   }
   else{
-    link.value = `http://localhost:3000/product/filter/${title}`
+    link.value = `{BACKEND_URL}/product/filter/${title}`
   }
   axios.get(link.value)
   .then((res)=>{
