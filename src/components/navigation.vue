@@ -2,7 +2,7 @@
   import axios from 'axios';
   import { ref } from 'vue';
   import { RouterLink } from 'vue-router'
-  import { akun,cekAkun } from '../assets/list'
+  import { akun,cekAkun,BACKEND_URL } from '../assets/list'
   import { onUpdated } from 'vue';
 
   onUpdated(cekAkun)
@@ -14,7 +14,7 @@
     burger.value=!burger.value
   }
   function logout () {
-    axios.delete('http://localhost:3000/logout',{withCredentials:true})
+    axios.delete(`${BACKEND_URL}/logout`,{withCredentials:true})
     .then((res)=>{
       akun.value=false
       alert(res.data)
