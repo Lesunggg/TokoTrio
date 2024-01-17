@@ -29,7 +29,7 @@ import show2 from './img/slide/img2.jpg'
 import axios from 'axios'
 import { ref } from 'vue'
 
-export BACKEND_URL = import.env.VITE_BACKEND_URL || http://localhost:3000
+export const BACKEND_URL = import.env.VITE_BACKEND_URL || http://localhost:3000
 export const list = [img1,img2,img3,img4,img5,img6,
     img7,img8,img9,img10,img11,img12,
     img13,img14,img15,img16,img17,img18,
@@ -38,7 +38,7 @@ export const list = [img1,img2,img3,img4,img5,img6,
 export const listFilter = [img2, img8, img14, img20]
 export const akun = ref(false)
 export const cekAkun = function () {
-    axios.get('http://localhost:3000/cek',{withCredentials:true})
+    axios.get(`${BACKEND_URL}/cek`,{withCredentials:true})
       .then((res)=>{
         if (res.data=='Success'){
           akun.value=true
@@ -52,7 +52,7 @@ export const cekAkun = function () {
     }
 
 export const cart = function () {
-  axios.get('http://localhost:3000/cart',{withCredentials: true})
+  axios.get(`${BACKEND_URL}/cart`,{withCredentials: true})
     .then((res)=>{
         user.value = res.data[0]
         listcart.value = res.data[1]
