@@ -1,7 +1,7 @@
 <script setup>
   import axios from 'axios';
   import { defineProps, ref } from 'vue';
-  import { cart } from '@/assets/list';
+  import { cart, BACKEND_URL } from '@/assets/list';
   const prop = defineProps(['kodecart','kodeUser','kodeBrg','name','harga','qty','total'])
   const update = function (x) {
     let y = 0
@@ -11,7 +11,7 @@
     else{
       y = 1
     }
-    axios.post('http://localhost:3000/cart/update',{
+    axios.post(`${BACKEND_URL}/cart/update`,{
       user:prop.kodeUser,
       qty:prop.qty+y,
       brg:prop.kodeBrg
@@ -35,7 +35,7 @@
       update('plus')
   }
   const hapus = function () {
-    axios.delete(`http://localhost:3000/cart/delete/${prop.kodecart}`,
+    axios.delete(`${BACKEND_URL}/cart/delete/${prop.kodecart}`,
     {withCredentials: true})
     .then((res)=>{
       alert(res.data)
