@@ -3,7 +3,7 @@
   import { ref } from 'vue';
   import axios from 'axios'
   import { defineProps } from 'vue';
-  import { akun } from '@/assets/list';
+  import { akun,BACKEND_URL } from '@/assets/list';
 
   const prop = defineProps(['form'])
   const username = ref('');
@@ -27,7 +27,7 @@
   function register () {
     if (infoun.value=="" && inforp.value=="" && username.value!='' && password.value!='' && repeatPassword.value!='') {
       if (prop.form=='Register') {
-        axios.post('http://localhost:3000/register',{
+        axios.post(`${BACKEND_URL}/register`,{
           nama: username.value,
           pass: password.value
         })
@@ -39,7 +39,7 @@
         })
       }
       else if (prop.form=='Login') {
-        axios.get('http://localhost:3000/login', {
+        axios.get(`${BACKEND_URL}/login`, {
           withCredentials: true,
           headers: {
             'Authorization': `${username.value},${password.value}`
