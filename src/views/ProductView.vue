@@ -15,7 +15,7 @@
     link.value = `${BACKEND_URL}/product`
   }
   else{
-    link.value = `{BACKEND_URL}/product/filter/${title}`
+    link.value = `${BACKEND_URL}/product/filter/${title}`
   }
   axios.get(link.value)
   .then((res)=>{
