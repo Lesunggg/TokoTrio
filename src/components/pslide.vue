@@ -10,9 +10,7 @@
       <div class="content-text">
         <div class="title">{{ prop.title }}</div>
         <p class="text">{{ prop.desc }}</p>
-        <RouterLink :to="{name: 'product', params:{title:"Kaos"}}">
-          <button class="tombol-jelajah">More ></button>
-        </RouterLink>
+        <button class="tombol-jelajah">More ></button>
       </div>
     </div>
   </div>
