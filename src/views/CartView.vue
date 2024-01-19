@@ -12,7 +12,7 @@
   <div v-if=akun>
     <div class="title-container">
       <div class="is-size-4">Shopping Cart</div>
-      <div class="is-size-4">User : {{ user.nama }}</div>
+      <div class="is-size-4">User : {{ user.name }}</div>
     </div>
     <div v-if="data.length>0">
       <div class="contain-cart">
