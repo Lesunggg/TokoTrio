@@ -14,8 +14,14 @@
     burger.value=!burger.value
   }
   function logout () {
-    axios.delete(`${BACKEND_URL}/logout`,{withCredentials:true})
+    const token = localStorage.getItem('token') || ""
+    axios.delete(`${BACKEND_URL}/logout`,{
+      withCredentials:true,
+      headers:{
+        "Authorization" : `${token}`
+      }})
     .then((res)=>{
+      localStorage.removeItem('token')
       akun.value=false
       alert(res.data)
       cekAkun()
