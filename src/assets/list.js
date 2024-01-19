@@ -38,7 +38,13 @@ export const list = [img1,img2,img3,img4,img5,img6,
 export const listFilter = [img2, img8, img14, img20]
 export const akun = ref(false)
 export const cekAkun = function () {
-    axios.get(`${BACKEND_URL}/cek`,{withCredentials:true})
+    const token = localStorage.getItem('token') || ""
+    axios.get(`${BACKEND_URL}/cek`,{
+        withCredentials:true,
+        headers: {
+          'Authorization': `${token}`
+        }
+    })
       .then((res)=>{
         if (res.data=='Success'){
           akun.value=true
@@ -52,7 +58,13 @@ export const cekAkun = function () {
     }
 
 export const cart = function () {
-  axios.get(`${BACKEND_URL}/cart`,{withCredentials: true})
+  const token = localStorage.getItem('token') || ""
+  axios.get(`${BACKEND_URL}/cart`,{
+    withCredentials: true,
+    headers:{
+      'Authorization': `${token}`
+    }
+  })
     .then((res)=>{
         user.value = res.data[0]
         listcart.value = res.data[1]
