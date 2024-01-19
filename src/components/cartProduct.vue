@@ -11,11 +11,15 @@
     else{
       y = 1
     }
+    const token = localStorage.getItem('token') || ""
     axios.post(`${BACKEND_URL}/cart/update`,{
       user:prop.kodeUser,
       qty:prop.qty+y,
       brg:prop.kodeBrg
-    },{withCredentials: true})
+    },{withCredentials: true,
+      headers: {
+      'Authorization': `${token}`
+    }})
     .then((res)=>{
       if(x=='plus') {
         prop.qty++
@@ -35,8 +39,12 @@
       update('plus')
   }
   const hapus = function () {
+    const token = localStorage.getItem('token') || ""
     axios.delete(`${BACKEND_URL}/cart/delete/${prop.kodecart}`,
-    {withCredentials: true})
+    {withCredentials: true,
+    headers: {
+      'Authorization': `${token}`
+    }})
     .then((res)=>{
       alert(res.data)
       cart()
