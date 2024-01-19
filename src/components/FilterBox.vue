@@ -8,7 +8,7 @@
 <template>
   <RouterLink :to="{name: 'product', params:{title:prop.nama}}">
     <div class="card">
-      <img :src=prop.img alt="random birthday image">
+      <img :src=prop.img>
       <h1>{{ prop.nama }}</h1>
      </div>
   </RouterLink>
