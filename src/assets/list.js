@@ -71,7 +71,7 @@ export const cart = function () {
         total.value = res.data[2]
     })
     .catch((err)=>{
-        alert("Account not found, Please login first")
+        console.error(err)
     })
 }
 export const user = ref('')
