@@ -27,11 +27,14 @@
   })
 
   function addCart () {
+    const token = localStorage.getItem('token') || ""
     axios.post(`${BACKEND_URL}/cart/add`,
     {kode:data.value.kode,qty:qty.value},
     {
-      withCredentials: true
-    })
+      withCredentials: true,
+      headers: {
+        'Authorization': `${token}`
+    }})
     .then((res)=>{
       alert(res.data)
       cart()
