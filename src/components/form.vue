@@ -46,7 +46,8 @@
           }
         })
         .then((res)=>{
-          alert(res.data)
+          localStorage.setItem('token',res.data.token)
+          alert(res.data.note)
           akun.value=true
         })
         .catch((err)=>{
