@@ -35,7 +35,7 @@
           alert(res.data)
         })
         .catch((err)=>{
-          alert('Register Server Error')    
+          alert('Register Error')    
         })
       }
       else if (prop.form=='Login') {
